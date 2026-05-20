@@ -1,0 +1,51 @@
+N_RIGA;ID_LIBRO;TITOLO;AUTORE;GENERE;ANNO_PUBBLICAZIONE;CASA_EDITRICE;ISBN;LINGUA;N_PAGINE;DISPONIBILE
+1;LIB001;Il Nome della Rosa;Umberto Eco;Romanzo storico;1980;Bompiani;978-88-452-9373-2;Italiano;502;SI
+2;LIB002;1984;George Orwell;Distopia;1949;Mondadori;978-88-04-64946-9;Italiano;328;SI
+3;LIB003;Il Piccolo Principe;Antoine de Saint-Exupéry;Favola;1943;Bompiani;978-88-452-7161-7;Italiano;96;NO
+4;LIB004;Don Chisciotte della Mancia;Miguel de Cervantes;Romanzo;1605;Einaudi;978-88-06-22068-5;Italiano;1023;SI
+5;LIB005;Delitto e Castigo;Fëdor Dostoevskij;Romanzo psicologico;1866;Garzanti;978-88-11-58534-3;Italiano;671;SI
+6;LIB006;La Divina Commedia;Dante Alighieri;Poesia epica;1320;Le Monnier;978-88-00-86164-7;Italiano;798;NO
+7;LIB007;Orgoglio e Pregiudizio;Jane Austen;Romanzo sentimentale;1813;Newton Compton;978-88-541-4289-1;Italiano;432;SI
+8;LIB008;Il Signore degli Anelli;J.R.R. Tolkien;Fantasy;1954;Bompiani;978-88-452-9360-2;Italiano;1178;SI
+9;LIB009;Cento Anni di Solitudine;Gabriel García Márquez;Realismo magico;1967;Feltrinelli;978-88-07-72177-3;Italiano;448;NO
+10;LIB010;I Promessi Sposi;Alessandro Manzoni;Romanzo storico;1840;Mondadori;978-88-04-40010-3;Italiano;720;SI
+11;LIB011;Il Processo;Franz Kafka;Romanzo esistenziale;1925;Einaudi;978-88-06-18742-1;Italiano;256;SI
+12;LIB012;Anna Karenina;Lev Tolstoj;Romanzo;1877;Einaudi;978-88-06-22291-7;Italiano;896;SI
+13;LIB013;Il Grande Gatsby;F. Scott Fitzgerald;Romanzo;1925;Mondadori;978-88-04-72616-5;Italiano;208;NO
+14;LIB014;Moby Dick;Herman Melville;Avventura;1851;Einaudi;978-88-06-22134-7;Italiano;752;SI
+15;LIB015;Odissea;Omero;Poema epico;-800;Einaudi;978-88-06-22010-4;Italiano;544;SI
+16;LIB016;Ulisse;James Joyce;Modernismo;1922;Mondadori;978-88-04-63400-7;Italiano;1024;NO
+17;LIB017;Il Conte di Montecristo;Alexandre Dumas;Avventura;1844;Newton Compton;978-88-541-3742-2;Italiano;1276;SI
+18;LIB018;Guerra e Pace;Lev Tolstoj;Romanzo storico;1869;Einaudi;978-88-06-22352-5;Italiano;1440;NO
+19;LIB019;La Metamorfosi;Franz Kafka;Racconto;1915;Feltrinelli;978-88-07-82340-9;Italiano;128;SI
+20;LIB020;Madame Bovary;Gustave Flaubert;Realismo;1857;Einaudi;978-88-06-22198-9;Italiano;464;SI
+21;LIB021;Il Vecchio e il Mare;Ernest Hemingway;Racconto;1952;Mondadori;978-88-04-56291-3;Italiano;136;SI
+22;LIB022;Lolita;Vladimir Nabokov;Romanzo;1955;Adelphi;978-88-459-0302-4;Italiano;368;NO
+23;LIB023;Il Mondo Nuovo;Aldous Huxley;Distopia;1932;Mondadori;978-88-04-69543-5;Italiano;304;SI
+24;LIB024;Il Buio oltre la Siepe;Harper Lee;Romanzo sociale;1960;Feltrinelli;978-88-07-72043-1;Italiano;336;SI
+25;LIB025;Lo Straniero;Albert Camus;Esistenzialismo;1942;Bompiani;978-88-452-9271-1;Italiano;160;SI
+26;LIB026;Cime Tempestose;Emily Brontë;Romanzo gotico;1847;Newton Compton;978-88-541-3211-3;Italiano;384;NO
+27;LIB027;Frankenstein;Mary Shelley;Horror gotico;1818;Einaudi;978-88-06-22051-7;Italiano;288;SI
+28;LIB028;Le Avventure di Huckleberry Finn;Mark Twain;Avventura;1884;Mondadori;978-88-04-49823-5;Italiano;352;SI
+29;LIB029;Dracula;Bram Stoker;Horror gotico;1897;Newton Compton;978-88-541-2988-5;Italiano;448;SI
+30;LIB030;Il Dottor Zivago;Boris Pasternak;Romanzo storico;1957;Feltrinelli;978-88-07-82116-0;Italiano;592;NO
+31;LIB031;Qualcuno Volò sul Nido del Cuculo;Ken Kesey;Romanzo;1962;Mondadori;978-88-04-61277-7;Italiano;320;SI
+32;LIB032;Il Giovane Holden;J.D. Salinger;Romanzo di formazione;1951;Einaudi;978-88-06-22249-8;Italiano;256;SI
+33;LIB033;La Fattoria degli Animali;George Orwell;Favola politica;1945;Mondadori;978-88-04-66219-2;Italiano;144;SI
+34;LIB034;Le Correzioni;Jonathan Franzen;Romanzo contemporaneo;2001;Einaudi;978-88-06-22418-8;Italiano;608;NO
+35;LIB035;Sulla Strada;Jack Kerouac;Romanzo;1957;Mondadori;978-88-04-58392-5;Italiano;384;SI
+36;LIB036;Il Signore delle Mosche;William Golding;Romanzo;1954;Mondadori;978-88-04-72484-0;Italiano;256;SI
+37;LIB037;La Coscienza di Zeno;Italo Svevo;Romanzo psicologico;1923;Einaudi;978-88-06-22376-1;Italiano;496;SI
+38;LIB038;Se questo è un Uomo;Primo Levi;Memoir;1947;Einaudi;978-88-06-19352-1;Italiano;222;NO
+39;LIB039;Il Gattopardo;Giuseppe Tomasi di Lampedusa;Romanzo storico;1958;Feltrinelli;978-88-07-72082-0;Italiano;320;SI
+40;LIB040;Cristo si è Fermato a Eboli;Carlo Levi;Memoir;1945;Einaudi;978-88-06-22315-0;Italiano;272;SI
+41;LIB041;Fontamara;Ignazio Silone;Romanzo sociale;1933;Mondadori;978-88-04-42718-6;Italiano;240;SI
+42;LIB042;Le Città Invisibili;Italo Calvino;Narrativa;1972;Einaudi;978-88-06-22017-3;Italiano;164;NO
+43;LIB043;Il Barone Rampante;Italo Calvino;Romanzo;1957;Einaudi;978-88-06-22019-7;Italiano;288;SI
+44;LIB044;Pinocchio;Carlo Collodi;Fiaba;1883;Giunti;978-88-09-89183-5;Italiano;192;SI
+45;LIB045;Il Pendolo di Foucault;Umberto Eco;Romanzo;1988;Bompiani;978-88-452-9492-0;Italiano;672;NO
+46;LIB046;Siddharta;Hermann Hesse;Romanzo filosofico;1922;Adelphi;978-88-459-0045-0;Italiano;176;SI
+47;LIB047;Il Profeta;Kahlil Gibran;Poesia in prosa;1923;Newton Compton;978-88-541-2564-1;Italiano;128;SI
+48;LIB048;L'Alchimista;Paulo Coelho;Narrativa;1988;Bompiani;978-88-452-2141-4;Italiano;208;SI
+49;LIB049;Il Deserto dei Tartari;Dino Buzzati;Romanzo;1940;Mondadori;978-88-04-42012-5;Italiano;272;NO
+50;LIB050;Le Confessioni di un Italiano;Ippolito Nievo;Romanzo storico;1867;Einaudi;978-88-06-22388-4;Italiano;1040;SI
