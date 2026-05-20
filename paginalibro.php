@@ -1,120 +1,124 @@
 <?php
-// ── Dati del libro (puoi modificarli o recuperarli da un database) ──────────
-$libro = [
-    'titolo'        => 'Il Nome della Rosa',
-    'autore'        => 'Umberto Eco',
-    'isbn'          => '978-88-452-9204-4',
-    'anno'          => '1980',
-    'lingua'        => 'Italiano',
-    'genere'        => 'Romanzo storico / Giallo',
-    'pagine'        => '502',
-    'editore'       => 'Bompiani',
-    'prezzo'        => '18.90',
-    'disponibile'   => true,
-];
-
-// ── Gestione acquisto via POST ────────────────────────────────────────────────
-$acquistato = false;
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['acquista'])) {
-    $acquistato = true;
-}
+/*
+ * ════════════════════════════════════════════════════════════════
+ * PAGINA: SCHEDA LIBRO
+ * Autore: Matteo Procino
+ * Data: 2026
+ * Versione: 2.0
+ * Funzionalità: Mostra tutte le informazioni del libro selezionato.
+ *               Se disponibile mostra il bottone Noleggia che:
+ *                 - aggiorna DISPONIBILE=NO nel file lista-libri.txt
+ *                 - scrive le date nelle colonne DATA_INIZIO e DATA_FINE di lista-libri.txt
+ *               Se non disponibile mostra le date di inizio e fine prestito
+ *               lette direttamente da lista-libri.txt (colonne DATA_INIZIO e DATA_FINE).
+ * ════════════════════════════════════════════════════════════════
+ */
 ?>
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title><?= htmlspecialchars($libro['titolo']) ?> — Scheda Libro</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
-</head>
-<body>
-
-<div class="page-bg"></div>
-
-<main class="container">
-  <div class="book-card">
-
-    <!-- ── Colonna copertina ── -->
-    <div class="book-cover-col">
-      <div class="book-cover">
-        <div class="cover-texture"></div>
-        <div class="cover-title"><?= htmlspecialchars($libro['titolo']) ?></div>
-        <div class="cover-author"><?= htmlspecialchars($libro['autore']) ?></div>
-      </div>
-      <div class="badge <?= $libro['disponibile'] ? 'badge--green' : 'badge--red' ?>">
-        <?= $libro['disponibile'] ? 'Disponibile' : 'Esaurito' ?>
-      </div>
-    </div>
-
-    <!-- ── Colonna informazioni ── -->
-    <div class="book-info-col">
-      <p class="label-top">Scheda libro</p>
-      <h1 class="book-title"><?= htmlspecialchars($libro['titolo']) ?></h1>
-      <p class="book-author">di <span><?= htmlspecialchars($libro['autore']) ?></span></p>
-
-      <div class="divider"></div>
-
-      <ul class="info-list">
-        <li>
-          <span class="info-label">ISBN</span>
-          <span class="info-value"><?= htmlspecialchars($libro['isbn']) ?></span>
-        </li>
-        <li>
-          <span class="info-label">Anno di pubblicazione</span>
-          <span class="info-value"><?= htmlspecialchars($libro['anno']) ?></span>
-        </li>
-        <li>
-          <span class="info-label">Lingua</span>
-          <span class="info-value"><?= htmlspecialchars($libro['lingua']) ?></span>
-        </li>
-        <li>
-          <span class="info-label">Genere</span>
-          <span class="info-value"><?= htmlspecialchars($libro['genere']) ?></span>
-        </li>
-        <li>
-          <span class="info-label">Numero di pagine</span>
-          <span class="info-value"><?= htmlspecialchars($libro['pagine']) ?></span>
-        </li>
-        <li>
-          <span class="info-label">Casa editrice</span>
-          <span class="info-value"><?= htmlspecialchars($libro['editore']) ?></span>
-        </li>
-      </ul>
-
-      <div class="divider"></div>
-
-      <div class="price-row">
-        <span class="price-label">Prezzo</span>
-        <span class="price">€ <?= number_format((float)$libro['prezzo'], 2, ',', '.') ?></span>
-      </div>
-
-      <?php if ($acquistato): ?>
-        <!-- Messaggio di conferma acquisto -->
-        <div class="grazie-msg visible">
-          <span class="grazie-icon">✅</span>
-          <p>Grazie per l'acquisto!<br/>
-             <strong><?= htmlspecialchars($libro['titolo']) ?></strong> è stato aggiunto al tuo ordine.</p>
-        </div>
-      <?php else: ?>
-        <!-- Form acquisto -->
-        <form method="POST" action="">
-          <?php if ($libro['disponibile']): ?>
-            <button type="submit" name="acquista" class="btn-acquista">
-              <span class="btn-icon">🛒</span>
-              <span class="btn-text">Acquista ora</span>
-            </button>
-          <?php else: ?>
-            <button type="button" class="btn-acquista btn-acquista--disabled" disabled>
-              <span class="btn-icon">✖</span>
-              <span class="btn-text">Non disponibile</span>
-            </button>
-          <?php endif; ?>
-        </form>
-      <?php endif; ?>
-
-    </div><!-- /book-info-col -->
-  </div><!-- /book-card -->
-</main>
-
+ 
+    <!-- Bottoni di navigazione: torna ai risultati o direttamente alla home -->
+    <form method="POST" action="" style="display:inline;">
+        <button type="submit" name="torna_risultati">← Torna ai risultati</button>
+    </form>
+    <form method="POST" action="" style="display:inline;">
+        <button type="submit" name="torna_home">⌂ Nuova ricerca</button>
+    </form>
+ 
+    <h1><?= htmlspecialchars($libro['titolo']) ?></h1>
+    <p>di <strong><?= htmlspecialchars($libro['autore']) ?></strong></p>
+ 
+    <hr>
+ 
+    <!-- Tabella con tutte le informazioni del libro -->
+    <table border="1" cellpadding="6">
+        <tr>
+            <td><strong>ISBN</strong></td>
+            <td><?= htmlspecialchars($libro['isbn']) ?></td>
+        </tr>
+        <tr>
+            <td><strong>Anno di pubblicazione</strong></td>
+            <td><?= htmlspecialchars($libro['anno']) ?></td>
+        </tr>
+        <tr>
+            <td><strong>Genere</strong></td>
+            <td><?= htmlspecialchars($libro['genere']) ?></td>
+        </tr>
+        <tr>
+            <td><strong>Casa editrice</strong></td>
+            <td><?= htmlspecialchars($libro['editore']) ?></td>
+        </tr>
+        <tr>
+            <td><strong>Lingua</strong></td>
+            <td><?= htmlspecialchars($libro['lingua']) ?></td>
+        </tr>
+        <tr>
+            <td><strong>Numero di pagine</strong></td>
+            <td><?= htmlspecialchars($libro['pagine']) ?></td>
+        </tr>
+    </table>
+ 
+    <hr>
+ 
+    <!-- Sezione disponibilità e noleggio -->
+    <?php if ($libro['disponibile']): ?>
+ 
+        <p><strong>Disponibilità:</strong> ✅ Disponibile</p>
+ 
+        <?php if ($noleggiato): ?>
+ 
+            <!-- Messaggio di conferma mostrato subito dopo il click su Noleggia -->
+            <p>✅ Noleggio confermato! Il libro è stato prenotato a nome di
+               <strong><?= $nome . ' ' . $cognome ?></strong>.
+            </p>
+            <?php
+            // Recupera le date appena scritte in lista-libri.txt per mostrarle nella conferma
+            $prestitiAggiornati = leggiPrestiti();
+            $idCorrente         = $_SESSION['id_libro'];
+            if (isset($prestitiAggiornati[$idCorrente])):
+            ?>
+            <p>Data inizio noleggio: <strong><?= $prestitiAggiornati[$idCorrente]['inizio'] ?></strong></p>
+            <p>Data restituzione prevista: <strong><?= $prestitiAggiornati[$idCorrente]['fine'] ?></strong></p>
+            <?php endif; ?>
+            <p>Potrai ritirarlo in biblioteca entro 3 giorni.</p>
+ 
+        <?php else: ?>
+ 
+            <!--
+                Form noleggio.
+                Metodo POST verso lo stesso file.
+                id_noleggio passa l'ID del libro al PHP per aggiornare il file.
+            -->
+            <form method="POST" action="">
+                <input type="hidden" name="id_noleggio" value="<?= htmlspecialchars($libro['id']) ?>">
+                <button type="submit" name="noleggia">Noleggia</button>
+            </form>
+ 
+        <?php endif; ?>
+ 
+    <?php else: ?>
+ 
+        <!-- Libro non disponibile: legge le date del prestito da lista-libri.txt -->
+        <p><strong>Disponibilità:</strong> ❌ Non disponibile</p>
+ 
+        <?php if (isset($prestiti[$libro['id']])): ?>
+ 
+            <!-- Date di prestito trovate in lista-libri.txt -->
+            <p>Questo libro è attualmente in prestito:</p>
+            <ul>
+                <li>Data inizio prestito: <strong><?= $prestiti[$libro['id']]['inizio'] ?></strong></li>
+                <li>Data fine prestito prevista: <strong><?= $prestiti[$libro['id']]['fine'] ?></strong></li>
+            </ul>
+            <p>Torna a controllare dopo il <?= $prestiti[$libro['id']]['fine'] ?>.</p>
+ 
+        <?php else: ?>
+ 
+            <!-- Il libro è segnato come non disponibile nel file ma non ha date registrate -->
+            <p>Questo libro non è al momento disponibile.</p>
+ 
+        <?php endif; ?>
+ 
+    <?php endif; ?>
+ 
+<?php endif; ?>
+ 
 </body>
 </html>
