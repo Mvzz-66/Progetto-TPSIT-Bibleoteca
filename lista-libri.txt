@@ -1,10 +1,10 @@
 N_RIGA;ID_LIBRO;TITOLO;AUTORE;GENERE;ANNO_PUBBLICAZIONE;CASA_EDITRICE;ISBN;LINGUA;N_PAGINE;DISPONIBILE;DATA_INIZIO_PRESTITO;DATA_FINE_PRESTITO
 1;LIB0001;Fondazione e Impero;Isaac Asimov;Fantascienza;1585;Mondadori;978-92-621-7548-0;Italiano;799;SI;NULL;NULL
 2;LIB0002;I Racconti del Terrore;Edgar Allan Poe;Horror;1849;Newton Compton;978-13-218-5279-1;Italiano;758;NO;2026-03-25;2026-06-23
-3;LIB0003;I Buddenbrook;Thomas Mann;Romanzo;1571;Corbaccio;978-23-710-8119-2;Italiano;158;SI;NULL;NULL
+3;LIB0003;I Buddenbrook;Thomas Mann;Romanzo;1571;Corbaccio;978-23-710-8119-2;Italiano;158;NO;21-05-2026;20-06-2026
 4;LIB0004;Germinale;Émile Zola;Naturalismo;1621;Einaudi;978-87-623-2894-3;Italiano;973;SI;NULL;NULL
 5;LIB0005;La via Familiare;Ben Okri;Romanzo;1890;Garzanti;978-42-145-8144-4;Italiano;469;NO;2026-03-28;2026-06-26
-6;LIB0006;Papà Goriot;Honoré de Balzac;Realismo;1851;Einaudi;978-95-301-6967-5;Italiano;1486;SI;NULL;NULL
+6;LIB0006;Papà Goriot;Honoré de Balzac;Realismo;1851;Einaudi;978-95-301-6967-5;Italiano;1486;NO;24-05-2026;23-06-2026
 7;LIB0007;Il Meglio di Asimov;Isaac Asimov;Fantascienza;1980;Mondadori;978-89-421-3041-6;Italiano;756;SI;NULL;NULL
 8;LIB0008;De Profundis;Oscar Wilde;Memoir;1607;Newton Compton;978-49-782-7691-7;Italiano;1118;SI;NULL;NULL
 9;LIB0009;Il Libro dell'Inquietudine;Fernando Pessoa;Diario;2013;Feltrinelli;978-80-230-4143-8;Italiano;685;SI;NULL;NULL
@@ -197,7 +197,7 @@ N_RIGA;ID_LIBRO;TITOLO;AUTORE;GENERE;ANNO_PUBBLICAZIONE;CASA_EDITRICE;ISBN;LINGU
 196;LIB0196;Gli Indifferenti;Alberto Moravia;Romanzo;1946;Bompiani;978-45-705-1920-5;Italiano;700;SI;NULL;NULL
 197;LIB0197;Bonjour Tristesse;Françoise Sagan;Romanzo;1375;Mondadori;978-69-562-1616-6;Italiano;715;NO;2026-02-27;2026-05-28
 198;LIB0198;Bruciante Segreto;Stefan Zweig;Racconto;1593;Mondadori;978-92-984-2479-7;Italiano;237;SI;NULL;NULL
-199;LIB0199;La Luna e i Falò;Cesare Pavese;Romanzo;1819;Einaudi;978-69-694-1672-8;Italiano;867;SI;NULL;NULL
+199;LIB0199;La Luna e i Falò;Cesare Pavese;Romanzo;1819;Einaudi;978-69-694-1672-8;Italiano;867;NO;24-05-2026;23-06-2026
 200;LIB0200;Kitchen;Banana Yoshimoto;Romanzo;1885;Feltrinelli;978-34-429-8792-9;Italiano;1414;SI;NULL;NULL
 201;LIB0201;I Versi Satanici;Salman Rushdie;Romanzo;1363;Mondadori;978-23-930-6626-0;Italiano;1002;SI;NULL;NULL
 202;LIB0202;Storia della Bambina Perduta;Elena Ferrante;Romanzo;1386;Edizioni e/o;978-92-276-1641-1;Italiano;1113;NO;2026-03-17;2026-06-15
@@ -478,7 +478,7 @@ N_RIGA;ID_LIBRO;TITOLO;AUTORE;GENERE;ANNO_PUBBLICAZIONE;CASA_EDITRICE;ISBN;LINGU
 477;LIB0477;Robinson Crusoe;Daniel Defoe;Avventura;1680;Einaudi;978-93-269-1848-6;Italiano;1440;SI;NULL;NULL
 478;LIB0478;Fondazione e Impero;Isaac Asimov;Fantascienza;1612;Mondadori;978-64-771-2494-7;Italiano;559;SI;NULL;NULL
 479;LIB0479;I Racconti del Terrore;Edgar Allan Poe;Horror;1301;Newton Compton;978-71-179-3174-8;Italiano;517;SI;NULL;NULL
-480;LIB0480;I Buddenbrook;Thomas Mann;Romanzo;1831;Corbaccio;978-66-109-1132-9;Italiano;1472;SI;NULL;NULL
+480;LIB0480;I Buddenbrook;Thomas Mann;Romanzo;1831;Corbaccio;978-66-109-1132-9;Italiano;1472;NO;21-05-2026;20-06-2026
 481;LIB0481;Germinale;Émile Zola;Naturalismo;1423;Einaudi;978-98-235-8826-0;Italiano;944;NO;2026-03-27;2026-06-25
 482;LIB0482;La via Familiare;Ben Okri;Romanzo;1692;Garzanti;978-23-205-6133-1;Italiano;262;SI;NULL;NULL
 483;LIB0483;Papà Goriot;Honoré de Balzac;Realismo;1606;Einaudi;978-58-892-3181-2;Italiano;360;SI;NULL;NULL
@@ -507,7 +507,7 @@ N_RIGA;ID_LIBRO;TITOLO;AUTORE;GENERE;ANNO_PUBBLICAZIONE;CASA_EDITRICE;ISBN;LINGU
 506;LIB0506;Il Cercatore d'Oro;Jean-Marie Le Clézio;Romanzo;1420;Einaudi;978-52-926-8034-5;Italiano;140;NO;2026-03-25;2026-06-23
 507;LIB0507;L'Infelicità Senza Desideri;Peter Handke;Racconto;1365;Garzanti;978-83-742-2262-6;Italiano;618;SI;NULL;NULL
 508;LIB0508;Il Conformista;Alberto Moravia;Romanzo;1823;Bompiani;978-17-611-3734-7;Italiano;817;SI;NULL;NULL
-509;LIB0509;Pippi Calzelunghe;Astrid Lindgren;Fiaba;1561;Salani;978-83-790-2889-8;Italiano;290;NO;2026-03-20;2026-06-18
+509;LIB0509;Pippi Calzelunghe;Astrid Lindgren;Fiaba;1561;Salani;978-83-790-2889-8;Italiano;290;NO;24-05-2026;23-06-2026
 510;LIB0510;VALIS;Philip K. Dick;Fantascienza;1821;Fanucci;978-15-979-1201-9;Italiano;85;NO;2026-04-16;2026-07-15
 511;LIB0511;Il Tempo Ritrovato;Marcel Proust;Modernismo;1783;Einaudi;978-59-253-3932-0;Italiano;825;SI;NULL;NULL
 512;LIB0512;Sottomissione;Michel Houellebecq;Romanzo;1336;Bompiani;978-93-529-4678-1;Italiano;1212;SI;NULL;NULL

@@ -1,0 +1,4 @@
+
+SC-XS987N0Y;Diego;Scatizzi;diegoscatizzi08@gmail.com;$2y$10$/YKj4UwZz0cL56B3WWAYb.KHO.rAkynwTPoOke54Zv0JEhTH7Plhi
+SC-1OMDRUGA;Massimialino;Dargo;massimilianodrago@gmail.com;$2y$10$4lynNP7fpmenGUVPXDznN.O8vFLl7CvdOH2swweQczFtUoE4S/PVK
+SC-48GDB731;Mario;Rossi;mariorossi05@gmail.com;$2y$10$V954z6QYS2FMcZv2zQI06O0l1LclqnXTzaxpPJE/DbitQ/lb/oeLy
