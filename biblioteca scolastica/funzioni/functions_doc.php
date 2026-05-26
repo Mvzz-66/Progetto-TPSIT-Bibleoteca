@@ -1,10 +1,8 @@
 <?php
 /**
  * @file functions_doc.php
- * @brief Estratto delle funzioni di biblioteca.php — solo per Doxygen.
  *
- * Questo file NON va in produzione.
- * Contiene esclusivamente le dichiarazioni delle funzioni con i
+ * Questo file contiene esclusivamente le dichiarazioni delle funzioni con i
  * rispettivi blocchi di documentazione Doxygen, senza HTML né
  * logica di navigazione. Doxygen lo parsa senza problemi.
  *
