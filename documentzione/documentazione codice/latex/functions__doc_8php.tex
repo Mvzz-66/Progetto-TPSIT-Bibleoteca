@@ -1,0 +1,315 @@
+\doxysection{funzioni/\+functions\+\_\+doc.php File Reference}
+\hypertarget{functions__doc_8php}{}\label{functions__doc_8php}\index{funzioni/functions\_doc.php@{funzioni/functions\_doc.php}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{functions__doc_8php_af718c95e4be1bc2884114ee73525e000}{cerca\+Utente}} (\$smart\+Card, \$password)
+\begin{DoxyCompactList}\small\item\em Cerca un utente nel file utenti.\+txt verificando smart card e password. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{functions__doc_8php_ae473e17c8bbc802cd06e4aa5161643f1}{genera\+Smart\+Card}} ()
+\begin{DoxyCompactList}\small\item\em Genera un codice smart card univoco nel formato SC-\/\+XXXXXXXX. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{functions__doc_8php_ae29a883b13cb00d4c55ee45abface7ac}{email\+Esiste}} (\$email)
+\begin{DoxyCompactList}\small\item\em Controlla se un indirizzo email è già registrato in utenti.\+txt. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{functions__doc_8php_aec9b3792bbf57c43828f33f04e1fc9c1}{autocomplete\+Ajax}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint AJAX per l\textquotesingle{}autocomplete della barra di ricerca. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{functions__doc_8php_a7342758c495e6694fac6430b3e4dfaf0}{cerca\+Libri\+Per\+Testo}} (\$q)
+\begin{DoxyCompactList}\small\item\em Cerca libri nel catalogo in base a un testo libero. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{functions__doc_8php_a340d3e899cba9f26357b2c1019473926}{leggi\+Prestiti}} ()
+\begin{DoxyCompactList}\small\item\em Legge tutti i prestiti attivi dal catalogo lista-\/libri.\+txt. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{functions__doc_8php_ac793a03e70c9c7b97ab43f7a02a7cd95}{cerca\+Libro\+Per\+ID}} (\$id\+Cercato)
+\begin{DoxyCompactList}\small\item\em Cerca un libro nel catalogo tramite il suo ID univoco. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{functions__doc_8php_a75543e333e52bea1e46b169be8486bc7}{aggiorna\+Disponibilita}} (\$id\+Libro, \$nuovo\+Val, \$data\+Inizio=null, \$data\+Fine=null)
+\begin{DoxyCompactList}\small\item\em Aggiorna la disponibilità di un libro e le date di prestito in lista-\/libri.\+txt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Questo file contiene esclusivamente le dichiarazioni delle funzioni con i rispettivi blocchi di documentazione Doxygen, senza HTML né logica di navigazione. Doxygen lo parsa senza problemi.
+
+File originale:\+ biblioteca.\+php
+
+Pagine virtuali gestite tramite \$\+\_\+\+SESSION\+[\textquotesingle{}pagina\textquotesingle{}]\+:\+
+\begin{DoxyEnumerate}
+\item {\bfseries{login}} — accesso con codice smart card e password
+\item {\bfseries{registrazione}} — creazione account con generazione smart card automatica
+\item {\bfseries{home}} — barra di ricerca con autocomplete visivo (AJAX)
+\item {\bfseries{risultati}} — tabella con i libri trovati dalla ricerca
+\item {\bfseries{scheda}} — dettaglio libro con disponibilità e noleggio
+\end{DoxyEnumerate}
+
+Struttura file dati:\+
+\begin{DoxyItemize}
+\item {\ttfamily utenti.\+txt} :\+ SMART\+\_\+\+CARD;NOME;COGNOME;EMAIL;PASSWORD\+\_\+\+HASH
+\item {\ttfamily lista-\/libri.\+txt}:\+ N;ID;TITOLO;AUTORE;GENERE;ANNO;EDITORE;ISBN;LINGUA;PAGINE;DISPONIBILE;DATA\+\_\+\+INIZIO;DATA\+\_\+\+FINE
+\end{DoxyItemize}
+
+\begin{DoxyCopyright}{Copyright}
+COPYRIGHT (c) 2026 My\+Soft snc. All rights reserved. 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Massimiliano Drago 
+
+Diego Scatizzi 
+
+Duccio Donnini 
+
+Gabriele Severi 
+
+Matteo Procino 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+4.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2026-\/05-\/23 
+\end{DoxyDate}
+
+
+Definition in file \doxymbox{\hyperlink{functions__doc_8php_source}{functions\+\_\+doc.\+php}}.
+
+
+
+\label{functions__doc_8php_doc-func-members}
+\Hypertarget{functions__doc_8php_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{functions__doc_8php_a75543e333e52bea1e46b169be8486bc7}\index{functions\_doc.php@{functions\_doc.php}!aggiornaDisponibilita@{aggiornaDisponibilita}}
+\index{aggiornaDisponibilita@{aggiornaDisponibilita}!functions\_doc.php@{functions\_doc.php}}
+\doxysubsubsection{\texorpdfstring{aggiornaDisponibilita()}{aggiornaDisponibilita()}}
+{\footnotesize\ttfamily \label{functions__doc_8php_a75543e333e52bea1e46b169be8486bc7} 
+aggiorna\+Disponibilita (\begin{DoxyParamCaption}\item[{}]{\$id\+Libro}{, }\item[{}]{\$nuovo\+Val}{, }\item[{}]{\$data\+Inizio}{ = {\ttfamily null}, }\item[{}]{\$data\+Fine}{ = {\ttfamily null}}\end{DoxyParamCaption})}
+
+
+
+Aggiorna la disponibilità di un libro e le date di prestito in lista-\/libri.\+txt. 
+
+Legge l\textquotesingle{}intero file, trova la riga con l\textquotesingle{}ID specificato, aggiorna il campo DISPONIBILE (colonna 10) e, se fornite, le date di inizio e fine prestito (colonne 11 e 12). Riscrive il file aggiornato.
+
+\begin{DoxyAuthor}{Author}
+Matteo Procino 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+1
+\end{DoxyVersion}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id\+Libro} & ID del libro da aggiornare (es. LIB001) \\
+\hline
+string & {\em \$nuovo\+Val} & Nuovo valore di disponibilità:\+ \textquotesingle{}SI\textquotesingle{} o \textquotesingle{}NO\textquotesingle{} \\
+\hline
+string | null & {\em \$data\+Inizio} & Data inizio prestito nel formato d-\/m-\/Y (opzionale) \\
+\hline
+string | null & {\em \$data\+Fine} & Data fine prestito nel formato d-\/m-\/Y (opzionale) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true se l\textquotesingle{}aggiornamento è riuscito, false se il libro non esiste o se la scrittura del file fallisce 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{functions__doc_8php_source_l00324}{324}} of file \doxymbox{\hyperlink{functions__doc_8php_source}{functions\+\_\+doc.\+php}}.
+
+\Hypertarget{functions__doc_8php_aec9b3792bbf57c43828f33f04e1fc9c1}\index{functions\_doc.php@{functions\_doc.php}!autocompleteAjax@{autocompleteAjax}}
+\index{autocompleteAjax@{autocompleteAjax}!functions\_doc.php@{functions\_doc.php}}
+\doxysubsubsection{\texorpdfstring{autocompleteAjax()}{autocompleteAjax()}}
+{\footnotesize\ttfamily \label{functions__doc_8php_aec9b3792bbf57c43828f33f04e1fc9c1} 
+autocomplete\+Ajax (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Endpoint AJAX per l\textquotesingle{}autocomplete della barra di ricerca. 
+
+Questo blocco viene eseguito solo quando Java\+Script lo chiama in background tramite fetch(). Legge lista-\/libri.\+txt e restituisce un array JSON con titolo e autore dei libri che corrispondono alla query (minimo 2 caratteri). La ricerca è case-\/insensitive e cerca su titolo, autore e ISBN. Restituisce al massimo 8 risultati. Termina con exit() per non produrre HTML.
+
+\begin{DoxyAuthor}{Author}
+Diego Scatizzi 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+3.\+1
+\end{DoxyVersion}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$\+\_\+\+GET,\+[\textquotesingle{}q\textquotesingle{}]\+} & Testo digitato dall\textquotesingle{}utente (minimo 2 caratteri) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void Risponde direttamente con JSON:\+ array di oggetti \{titolo, autore\}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Attivato dalla presenza del parametro GET {\ttfamily autocomplete}. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{functions__doc_8php_source_l00151}{151}} of file \doxymbox{\hyperlink{functions__doc_8php_source}{functions\+\_\+doc.\+php}}.
+
+\Hypertarget{functions__doc_8php_a7342758c495e6694fac6430b3e4dfaf0}\index{functions\_doc.php@{functions\_doc.php}!cercaLibriPerTesto@{cercaLibriPerTesto}}
+\index{cercaLibriPerTesto@{cercaLibriPerTesto}!functions\_doc.php@{functions\_doc.php}}
+\doxysubsubsection{\texorpdfstring{cercaLibriPerTesto()}{cercaLibriPerTesto()}}
+{\footnotesize\ttfamily \label{functions__doc_8php_a7342758c495e6694fac6430b3e4dfaf0} 
+cerca\+Libri\+Per\+Testo (\begin{DoxyParamCaption}\item[{}]{\$q}{}\end{DoxyParamCaption})}
+
+
+
+Cerca libri nel catalogo in base a un testo libero. 
+
+Scorre lista-\/libri.\+txt e restituisce tutti i libri il cui titolo, autore, genere o ISBN contengono la stringa cercata. La ricerca è case-\/insensitive.
+
+\begin{DoxyAuthor}{Author}
+Diego Scatizzi 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+3.\+1
+\end{DoxyVersion}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$q} & Testo da cercare (minimo 2 caratteri consigliati) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array Array di array associativi, ciascuno con le chiavi:\+ \textquotesingle{}id\textquotesingle{}, \textquotesingle{}titolo\textquotesingle{}, \textquotesingle{}autore\textquotesingle{}, \textquotesingle{}genere\textquotesingle{}, \textquotesingle{}anno\textquotesingle{}, \textquotesingle{}disponibile\textquotesingle{} 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{functions__doc_8php_source_l00200}{200}} of file \doxymbox{\hyperlink{functions__doc_8php_source}{functions\+\_\+doc.\+php}}.
+
+\Hypertarget{functions__doc_8php_ac793a03e70c9c7b97ab43f7a02a7cd95}\index{functions\_doc.php@{functions\_doc.php}!cercaLibroPerID@{cercaLibroPerID}}
+\index{cercaLibroPerID@{cercaLibroPerID}!functions\_doc.php@{functions\_doc.php}}
+\doxysubsubsection{\texorpdfstring{cercaLibroPerID()}{cercaLibroPerID()}}
+{\footnotesize\ttfamily \label{functions__doc_8php_ac793a03e70c9c7b97ab43f7a02a7cd95} 
+cerca\+Libro\+Per\+ID (\begin{DoxyParamCaption}\item[{}]{\$id\+Cercato}{}\end{DoxyParamCaption})}
+
+
+
+Cerca un libro nel catalogo tramite il suo ID univoco. 
+
+Scorre lista-\/libri.\+txt e restituisce i dati completi del libro la cui colonna ID (indice 1) corrisponde al valore cercato.
+
+\begin{DoxyAuthor}{Author}
+Matteo Procino 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+1
+\end{DoxyVersion}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$id\+Cercato} & ID del libro da cercare (es. LIB001) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array\texorpdfstring{$\vert$}{|}null Array associativo con le chiavi \textquotesingle{}id\textquotesingle{}, \textquotesingle{}titolo\textquotesingle{}, \textquotesingle{}autore\textquotesingle{}, \textquotesingle{}genere\textquotesingle{}, \textquotesingle{}anno\textquotesingle{}, \textquotesingle{}editore\textquotesingle{}, \textquotesingle{}isbn\textquotesingle{}, \textquotesingle{}lingua\textquotesingle{}, \textquotesingle{}pagine\textquotesingle{}, \textquotesingle{}disponibile\textquotesingle{} (bool), oppure null se non trovato 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{functions__doc_8php_source_l00280}{280}} of file \doxymbox{\hyperlink{functions__doc_8php_source}{functions\+\_\+doc.\+php}}.
+
+\Hypertarget{functions__doc_8php_af718c95e4be1bc2884114ee73525e000}\index{functions\_doc.php@{functions\_doc.php}!cercaUtente@{cercaUtente}}
+\index{cercaUtente@{cercaUtente}!functions\_doc.php@{functions\_doc.php}}
+\doxysubsubsection{\texorpdfstring{cercaUtente()}{cercaUtente()}}
+{\footnotesize\ttfamily \label{functions__doc_8php_af718c95e4be1bc2884114ee73525e000} 
+cerca\+Utente (\begin{DoxyParamCaption}\item[{}]{\$smart\+Card}{, }\item[{}]{\$password}{}\end{DoxyParamCaption})}
+
+
+
+Cerca un utente nel file utenti.\+txt verificando smart card e password. 
+
+Apre utenti.\+txt e confronta riga per riga il codice smart card e la password. La verifica della password avviene tramite password\+\_\+verify() che confronta la stringa in chiaro con l\textquotesingle{}hash bcrypt salvato nel file.
+
+Struttura di utenti.\+txt:\+ SMART\+\_\+\+CARD;NOME;COGNOME;EMAIL;PASSWORD\+\_\+\+HASH
+
+\begin{DoxyAuthor}{Author}
+Gabriele Severi 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+1
+\end{DoxyVersion}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$smart\+Card} & Codice smart card dell\textquotesingle{}utente (es. SC-\/\+AB12\+CD34) \\
+\hline
+string & {\em \$password} & Password in chiaro da verificare contro l\textquotesingle{}hash salvato \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array\texorpdfstring{$\vert$}{|}null Array associativo con chiavi \textquotesingle{}nome\textquotesingle{} e \textquotesingle{}cognome\textquotesingle{} se trovato, null se le credenziali non corrispondono o il file non esiste 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{functions__doc_8php_source_l00053}{53}} of file \doxymbox{\hyperlink{functions__doc_8php_source}{functions\+\_\+doc.\+php}}.
+
+\Hypertarget{functions__doc_8php_ae29a883b13cb00d4c55ee45abface7ac}\index{functions\_doc.php@{functions\_doc.php}!emailEsiste@{emailEsiste}}
+\index{emailEsiste@{emailEsiste}!functions\_doc.php@{functions\_doc.php}}
+\doxysubsubsection{\texorpdfstring{emailEsiste()}{emailEsiste()}}
+{\footnotesize\ttfamily \label{functions__doc_8php_ae29a883b13cb00d4c55ee45abface7ac} 
+email\+Esiste (\begin{DoxyParamCaption}\item[{}]{\$email}{}\end{DoxyParamCaption})}
+
+
+
+Controlla se un indirizzo email è già registrato in utenti.\+txt. 
+
+Il confronto è case-\/insensitive:\+ "{}\+Mario@email.\+it"{} e "{}mario@email.\+it"{} vengono considerati la stessa email.
+
+\begin{DoxyAuthor}{Author}
+Duccio Donnini 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+1
+\end{DoxyVersion}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$email} & Indirizzo email da verificare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true se l\textquotesingle{}email è già presente, false altrimenti 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{functions__doc_8php_source_l00120}{120}} of file \doxymbox{\hyperlink{functions__doc_8php_source}{functions\+\_\+doc.\+php}}.
+
+\Hypertarget{functions__doc_8php_ae473e17c8bbc802cd06e4aa5161643f1}\index{functions\_doc.php@{functions\_doc.php}!generaSmartCard@{generaSmartCard}}
+\index{generaSmartCard@{generaSmartCard}!functions\_doc.php@{functions\_doc.php}}
+\doxysubsubsection{\texorpdfstring{generaSmartCard()}{generaSmartCard()}}
+{\footnotesize\ttfamily \label{functions__doc_8php_ae473e17c8bbc802cd06e4aa5161643f1} 
+genera\+Smart\+Card (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Genera un codice smart card univoco nel formato SC-\/\+XXXXXXXX. 
+
+Genera codici casuali con 8 caratteri alfanumerici maiuscoli e verifica che non esistano già in utenti.\+txt. Ripete la generazione finché non ottiene un codice effettivamente univoco.
+
+\begin{DoxyAuthor}{Author}
+Duccio Donnini 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+1
+\end{DoxyVersion}
+\begin{DoxyReturn}{Returns}
+string Codice smart card univoco (es. SC-\/\+AB12\+CD34) 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{functions__doc_8php_source_l00090}{90}} of file \doxymbox{\hyperlink{functions__doc_8php_source}{functions\+\_\+doc.\+php}}.
+
+\Hypertarget{functions__doc_8php_a340d3e899cba9f26357b2c1019473926}\index{functions\_doc.php@{functions\_doc.php}!leggiPrestiti@{leggiPrestiti}}
+\index{leggiPrestiti@{leggiPrestiti}!functions\_doc.php@{functions\_doc.php}}
+\doxysubsubsection{\texorpdfstring{leggiPrestiti()}{leggiPrestiti()}}
+{\footnotesize\ttfamily \label{functions__doc_8php_a340d3e899cba9f26357b2c1019473926} 
+leggi\+Prestiti (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Legge tutti i prestiti attivi dal catalogo lista-\/libri.\+txt. 
+
+Scorre lista-\/libri.\+txt e raccoglie solo i libri che hanno date di prestito valorizzate (colonne 11 e 12 diverse da NULL).
+
+\begin{DoxyAuthor}{Author}
+Matteo Procino 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+1
+\end{DoxyVersion}
+\begin{DoxyReturn}{Returns}
+array Array associativo indicizzato per ID libro:\+ \+[ ID\+\_\+\+LIBRO =\texorpdfstring{$>$}{>} \+[\textquotesingle{}inizio\textquotesingle{} =\texorpdfstring{$>$}{>} \textquotesingle{}dd-\/mm-\/yyyy\textquotesingle{}, \textquotesingle{}fine\textquotesingle{} =\texorpdfstring{$>$}{>} \textquotesingle{}dd-\/mm-\/yyyy\textquotesingle{}]\+ ]\+ 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{functions__doc_8php_source_l00249}{249}} of file \doxymbox{\hyperlink{functions__doc_8php_source}{functions\+\_\+doc.\+php}}.
+
