@@ -1,0 +1,336 @@
+/*
+ * ============================================================
+ *  style.css — Biblioteca Scolastica
+ *  Versione: 1.0 — 2026
+ * Struttura:
+ *   1. Font & variabili
+ *   2. Reset & base
+ *   3. Layout & contenitore
+ *   4. Barra utente
+ *   5. Titoli
+ *   6. Form & input
+ *   7. Bottoni
+ *   8. Autocomplete
+ *   9. Tabelle (tutte centrate)
+ *  10. Scheda libro
+ *  11. Responsive
+ */
+
+/* ── 1. FONT & VARIABILI ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root {
+    --sfondo:       #f5f1ea;   
+    --superficie:   #fffdf8;  
+    --testo:        #1c1811;   
+    --testo-lieve:  #6b6254;  
+    --bordo:        #d6cfc4;
+    --accento:      #b85c38;   
+    --accento-sc:   #8f3e22;
+    --blu-chiaro:   #e8f0f7;   
+    --ombra:        0 2px 12px rgba(28,24,17,0.10);
+    --raggio:       6px;
+}
+
+/* ── 2. RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background-color: var(--sfondo);
+    /* texture punti sottile */
+    background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: var(--testo);
+    line-height: 1.7;
+    padding: 2rem 1rem;
+}
+
+/* ── 3. LAYOUT & CONTENITORE ── */
+body > *:not(script) {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+p  { margin-bottom: 0.8rem; }
+hr { border: none; border-top: 1px solid var(--bordo); margin: 1.2rem auto; max-width: 700px; }
+
+ul {
+    list-style: none;
+    max-width: 700px;
+    margin: 0.5rem auto 1rem;
+    padding: 0;
+    background: var(--superficie);
+    border: 1px solid var(--bordo);
+    border-radius: var(--raggio);
+    overflow: hidden;
+}
+ul li { padding: 0.55rem 1rem; border-bottom: 1px solid var(--bordo); font-size: 0.95rem; }
+ul li:last-child { border-bottom: none; }
+
+/* ── 4. BARRA UTENTE ── */
+body > div:first-of-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--testo);
+    color: #f5f1ea;
+    padding: 0.6rem 1.4rem;
+    border-radius: 0 0 var(--raggio) var(--raggio);
+    margin-bottom: 2rem;
+    max-width: 100%;   /* striscia a tutta larghezza */
+    box-shadow: var(--ombra);
+}
+body > div:first-of-type small  { color: #c8bfb2; }
+body > div:first-of-type strong { color: #f5f1ea; }
+body > div:first-of-type form {
+    background: none; border: none; box-shadow: none; padding: 0; margin: 0;
+}
+
+/* ── 5. TITOLI ── */
+h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: var(--testo);
+    margin: 1.8rem auto 1.2rem;
+    padding-bottom: 0.5rem;
+    max-width: 700px;
+    position: relative;
+}
+/* linea sotto il titolo */
+h1::after {
+    content: '';
+    display: block;
+    width: 2.8rem;
+    height: 3px;
+    background: var(--accento);
+    border-radius: 2px;
+    margin-top: 0.4rem;
+}
+
+/* ── 6. FORM & INPUT ── */
+form {
+    background: var(--superficie);
+    border: 1px solid var(--bordo);
+    border-radius: var(--raggio);
+    padding: 1.8rem 2rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--ombra);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Form inline (logout, navigazione): niente sfondo */
+form[style*="display:inline"] {
+    background: none; border: none; box-shadow: none;
+    padding: 0; margin: 0; display: inline !important;
+}
+
+label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--testo-lieve);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+    margin-top: 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.6rem 0.85rem;
+    border: 1.5px solid var(--bordo);
+    border-radius: var(--raggio);
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--testo);
+    background: var(--sfondo);
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+input:focus {
+    border-color: var(--accento);
+    box-shadow: 0 0 0 3px rgba(184,92,56,0.18);
+    background: var(--superficie);
+}
+input::placeholder { color: #a89f94; font-style: italic; }
+
+/* ── 7. BOTTONI ── */
+button {
+    padding: 0.55rem 1.2rem;
+    border-radius: var(--raggio);
+    border: 1.5px solid transparent;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, transform 0.1s;
+}
+button:active { transform: scale(0.97); }
+
+/* Primari: Accedi, Registrati, Cerca, Noleggia */
+button[name="accedi"],
+button[name="registrati"],
+button[name="cerca"],
+button[name="noleggia"] {
+    background: var(--accento);
+    color: white;
+    border-color: var(--accento);
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1.2rem;
+    font-size: 1rem;
+}
+button[name="accedi"]:hover,
+button[name="registrati"]:hover,
+button[name="cerca"]:hover,
+button[name="noleggia"]:hover {
+    background: var(--accento-sc);
+    border-color: var(--accento-sc);
+}
+
+/* Secondari */
+button[name="vai_registrazione"],
+button[name="vai_login"] {
+    background: none;
+    color: var(--accento);
+    border-color: var(--accento);
+}
+button[name="vai_registrazione"]:hover,
+button[name="vai_login"]:hover {
+    background: var(--accento);
+    color: white;
+}
+
+/* Logout */
+button[name="logout"] {
+    background: none;
+    color: #c8bfb2;
+    border-color: #4a4539;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.82rem;
+}
+button[name="logout"]:hover { background: var(--accento); color: white; border-color: var(--accento); }
+
+/* Navigazione */
+button[name="torna_home"],
+button[name="torna_risultati"] {
+    background: var(--superficie);
+    color: var(--testo-lieve);
+    border-color: var(--bordo);
+    margin-bottom: 0.8rem;
+}
+button[name="torna_home"]:hover,
+button[name="torna_risultati"]:hover {
+    background: #ede8df;
+    color: var(--testo);
+    border-color: #b0a89c;
+}
+
+/* Vedi (tabella) */
+button[name="vai_scheda_da_risultati"] {
+    background: none;
+    color: var(--accento);
+    border-color: var(--accento);
+    padding: 0.28rem 0.7rem;
+    font-size: 0.82rem;
+}
+button[name="vai_scheda_da_risultati"]:hover {
+    background: var(--accento);
+    color: white;
+}
+
+/* ── 8. AUTOCOMPLETE ── */
+#suggerimenti {
+    background: var(--superficie);
+    border: 1.5px solid var(--bordo);
+    border-top: none;
+    border-radius: 0 0 var(--raggio) var(--raggio);
+    box-shadow: var(--ombra);
+}
+#suggerimenti:empty { border: none; box-shadow: none; }
+#suggerimenti div {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--bordo);
+    cursor: default;
+    color: var(--testo);
+}
+#suggerimenti div:last-child { border-bottom: none; }
+#suggerimenti div:hover { background: #ede8df; }
+
+/* ── 9. TABELLE (tutte centrate) ── */
+table {
+    width: 100%;
+    max-width: 700px;
+    margin: 1rem auto 1.5rem auto;  /* auto sinistra/destra = centrata */
+    border-collapse: collapse;
+    background: var(--superficie);
+    border-radius: var(--raggio);
+    overflow: hidden;
+    box-shadow: var(--ombra);
+    font-size: 0.9rem;
+}
+
+/* Rimuove border="1" e cellpadding inline del PHP */
+table[border] { border: none; }
+
+thead {
+    background: var(--testo);
+    color: #f5f1ea;
+}
+thead th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    font-family: 'Source Serif 4', serif;
+}
+
+tbody tr { border-bottom: 1px solid var(--bordo); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:nth-child(even) { background: #faf7f2; }  /* righe alternate */
+tbody tr:hover { background: #f0ebe1; }
+
+tbody td { padding: 0.65rem 1rem; vertical-align: middle; }
+
+/* Prima colonna della tabella scheda (etichette) */
+tbody td:first-child {
+    color: var(--testo-lieve);
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: #faf7f2;
+    width: 42%;
+}
+
+/* Form nelle celle risultati: niente stile */
+tbody td form { background: none; border: none; box-shadow: none; padding: 0; margin: 0; }
+
+/* ── 10. SCHEDA LIBRO ── */
+/* "di Autore" sotto il titolo */
+h1 + p {
+    font-style: italic;
+    color: var(--testo-lieve);
+    margin-top: -0.6rem;
+    margin-bottom: 1rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ── 11. RESPONSIVE ── */
+@media (max-width: 520px) {
+    body { padding: 1rem 0.5rem; }
+    form { padding: 1.2rem; }
+    table { display: block; overflow-x: auto; }
+    h1 { font-size: 1.4rem; }
+}
