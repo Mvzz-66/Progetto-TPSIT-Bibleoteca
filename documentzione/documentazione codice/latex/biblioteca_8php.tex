@@ -1,0 +1,279 @@
+\doxysection{C:\+/\+xampp/\+htdocs/\+biblioteca scolastica/\+biblioteca.php File Reference}
+\hypertarget{biblioteca_8php}{}\label{biblioteca_8php}\index{C:/xampp/htdocs/biblioteca scolastica/biblioteca.php@{C:/xampp/htdocs/biblioteca scolastica/biblioteca.php}}
+
+
+Sistema di gestione per una biblioteca scolastica.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+elseif( \$pagina\+Corrente===\textquotesingle{}registrazione\textquotesingle{})() \doxymbox{\hyperlink{biblioteca_8php_addd151a9c7648913907691c06d1a8c33}{email\+Esiste}} (\$email)
+\begin{DoxyCompactList}\small\item\em Controlla se un indirizzo email è già registrato in utenti.\+txt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \doxymbox{\hyperlink{biblioteca_8php_a1a2d314f77ce5f506bbb834ea7f6a213}{URL\+\_\+\+BASE}} strtok(\$\+\_\+\+SERVER\+[\textquotesingle{}REQUEST\+\_\+\+URI\textquotesingle{}]\+, \textquotesingle{}?\textquotesingle{})
+\item 
+if(!isset(\$\+\_\+\+SESSION\+[\textquotesingle{}pagina\textquotesingle{}]\+)) \doxymbox{\hyperlink{biblioteca_8php_a912329a731e64b1ae9029b9d86ab9dc5}{\$pagine\+Pubbliche}} = \+[\textquotesingle{}login\textquotesingle{}, \textquotesingle{}registrazione\textquotesingle{}]\+
+\item 
+if(!in\+\_\+array(\$\+\_\+\+SESSION\+[\textquotesingle{}pagina\textquotesingle{}]\+, \$pagine\+Pubbliche) \&\&empty(\$\+\_\+\+SESSION\+[\textquotesingle{}loggato\textquotesingle{}]\+)) \doxymbox{\hyperlink{biblioteca_8php_a407a2c34c732aa9017906255b78b05ef}{\$pagina\+Corrente}} = \$\+\_\+\+SESSION\+[\textquotesingle{}pagina\textquotesingle{}]\+
+\item 
+\doxymbox{\hyperlink{biblioteca_8php_ac8c9d9dd5d90fa5854f0cb8397084ebd}{\$nome}} = isset(\$\+\_\+\+SESSION\+[\textquotesingle{}nome\textquotesingle{}]\+) ? htmlspecialchars(\$\+\_\+\+SESSION\+[\textquotesingle{}nome\textquotesingle{}]\+) :\+ \textquotesingle{}\textquotesingle{}
+\item 
+\doxymbox{\hyperlink{biblioteca_8php_a600d90f1a17195713d76b84391b6cd1c}{\$cognome}} = isset(\$\+\_\+\+SESSION\+[\textquotesingle{}cognome\textquotesingle{}]\+) ? htmlspecialchars(\$\+\_\+\+SESSION\+[\textquotesingle{}cognome\textquotesingle{}]\+) :\+ \textquotesingle{}\textquotesingle{}
+\item 
+\doxymbox{\hyperlink{biblioteca_8php_a1c2084fd14c7de68dcef9e09275b0268}{\$errore\+Login}} = \$\+\_\+\+SESSION\+[\textquotesingle{}errore\+\_\+login\textquotesingle{}]\+ ?? \textquotesingle{}\textquotesingle{}
+\item 
+\doxymbox{\hyperlink{biblioteca_8php_a794085cc47d44fbcf5c15d3c28cbb1c7}{\$errore\+Reg}} = \$\+\_\+\+SESSION\+[\textquotesingle{}errore\+\_\+reg\textquotesingle{}]\+ ?? \textquotesingle{}\textquotesingle{}
+\item 
+\doxymbox{\hyperlink{biblioteca_8php_a1c97ea3c2a354a24f38add2379ef0788}{\$smart\+Card\+Generata}} = \$\+\_\+\+SESSION\+[\textquotesingle{}smart\+\_\+card\+\_\+generata\textquotesingle{}]\+ ?? \textquotesingle{}\textquotesingle{}
+\item 
+\doxymbox{\hyperlink{biblioteca_8php_ab964040a29b9cc842d2c93c8c904787c}{\$noleggiato}} = false
+\item 
+\doxymbox{\hyperlink{biblioteca_8php_a72f86ac30035255576b292d043058d3e}{\$libro}} = null
+\item 
+\doxymbox{\hyperlink{biblioteca_8php_a985378b5671ef8c411c8a5c98ce79419}{\$risultati}} = \+[$\,$]\+
+\item 
+\doxymbox{\hyperlink{biblioteca_8php_a9a64d17a77d74229a4b2b366041df8fd}{\$prestiti}} = \+[$\,$]\+
+\item 
+if(isset( \$\+\_\+\+POST\+[ \textquotesingle{}registrati\textquotesingle{}]\+)) if(isset(\$\+\_\+\+POST\+[\textquotesingle{}vai\+\_\+login\textquotesingle{}]\+)) if(!empty( \$smart\+Card\+Generata)) htmlspecialchars(\$smart\+Card\+Generata) ?$>$$<$/\+strong $>$$<$/\+p $>$$<$ p $>$Conserva questo codice e svuotare smart\+\_\+card\+\_\+generata dalla \doxymbox{\hyperlink{biblioteca_8php_a1626973f4b04a5c470e5a6280e78ac83}{sessione}}
+\item 
+if(isset( \$\+\_\+\+POST\+[ \textquotesingle{}registrati\textquotesingle{}]\+)) if(isset(\$\+\_\+\+POST\+[\textquotesingle{}vai\+\_\+login\textquotesingle{}]\+)) if(!empty( \$smart\+Card\+Generata)) htmlspecialchars(\$smart\+Card\+Generata) ?$>$$<$/\+strong $>$$<$/\+p $>$$<$ p $>$Conserva questo codice e svuotare smart\+\_\+card\+\_\+generata dalla poi fa redirect$<$ form method="{}POST"{} action="{}$<$?= URL\+\_\+\+BASE ?$>$ submit vai\+\_\+login POST$<$?= \doxymbox{\hyperlink{biblioteca_8php_a1a2d314f77ce5f506bbb834ea7f6a213}{URL\+\_\+\+BASE}} ?$>$ text nome Nome text cognome Cognome email email Inserire email password password Inserire password submit registrati POST$<$?= \doxymbox{\hyperlink{biblioteca_8php_a1a2d314f77ce5f506bbb834ea7f6a213}{URL\+\_\+\+BASE}} ?$>$ submit vai\+\_\+login POST$<$?= \doxymbox{\hyperlink{biblioteca_8php_a1a2d314f77ce5f506bbb834ea7f6a213}{URL\+\_\+\+BASE}} ?$>$ \doxymbox{\hyperlink{biblioteca_8php_a6b73b83ea203e187b5fef6917199f322}{display}}
+\item 
+submit logout Cerca Cerca POST$<$?=\doxymbox{\hyperlink{biblioteca_8php_a1a2d314f77ce5f506bbb834ea7f6a213}{URL\+\_\+\+BASE}} ?$>$ search\+Form text titolo search\+Input Barra di ricerca off suggerimenti submit cerca \doxymbox{\hyperlink{biblioteca_8php_a1e0cd334923f598dbdaeeb1e91dfdfc8}{cursor}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Sistema di gestione per una biblioteca scolastica. 
+
+File unico che gestisce le seguenti pagine virtuali tramite \$\+\_\+\+SESSION\+[\textquotesingle{}pagina\textquotesingle{}]\+:\+
+\begin{DoxyEnumerate}
+\item {\bfseries{login}} — accesso con codice smart card e password
+\item {\bfseries{registrazione}} — creazione account con generazione smart card automatica
+\item {\bfseries{home}} — barra di ricerca con autocomplete visivo (AJAX)
+\item {\bfseries{risultati}} — tabella con i libri trovati dalla ricerca
+\item {\bfseries{scheda}} — dettaglio libro con disponibilità e noleggio
+\end{DoxyEnumerate}
+
+Gli utenti sono salvati in utenti.\+txt con struttura:\+ SMART\+\_\+\+CARD;NOME;COGNOME;EMAIL;PASSWORD\+\_\+\+HASH
+
+Il catalogo libri è in lista-\/libri.\+txt con struttura:\+ N;ID;TITOLO;AUTORE;GENERE;ANNO;EDITORE;ISBN;LINGUA;PAGINE;DISPONIBILE;DATA\+\_\+\+INIZIO;DATA\+\_\+\+FINE
+
+Ogni azione POST termina con un redirect (pattern PRG -\/ Post/\+\+Redirect/\+\+Get) per evitare che parametri GET residui nella URL causino navigazioni indesiderate al ricaricamento della pagina.
+
+\begin{DoxyCopyright}{Copyright}
+COPYRIGHT (c) 2026 My\+Soft snc. All rights reserved. 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Massimiliano Drago 
+
+Diego Scatizzi 
+
+Duccio Donnini 
+
+Gabriele Severi 
+
+Matteo Procino 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+4.\+2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2026-\/05-\/23 
+\end{DoxyDate}
+
+
+Definition in file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+
+
+\label{biblioteca_8php_doc-func-members}
+\Hypertarget{biblioteca_8php_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{biblioteca_8php_addd151a9c7648913907691c06d1a8c33}\index{biblioteca.php@{biblioteca.php}!emailEsiste@{emailEsiste}}
+\index{emailEsiste@{emailEsiste}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{emailEsiste()}{emailEsiste()}}
+{\footnotesize\ttfamily \label{biblioteca_8php_addd151a9c7648913907691c06d1a8c33} 
+elseif(\$pagina\+Corrente===\textquotesingle{}registrazione\textquotesingle{})() email\+Esiste (\begin{DoxyParamCaption}\item[{}]{\$email}{}\end{DoxyParamCaption})}
+
+
+
+Controlla se un indirizzo email è già registrato in utenti.\+txt. 
+
+Il confronto è case-\/insensitive:\+ "{}\+Mario@email.\+it"{} e "{}mario@email.\+it"{} vengono considerati la stessa email.
+
+\begin{DoxyAuthor}{Author}
+Duccio Donnini 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+1
+\end{DoxyVersion}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$email} & Indirizzo email da verificare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true se l\textquotesingle{}email è già presente, false altrimenti 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00272}{272}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+
+
+\label{biblioteca_8php_doc-var-members}
+\Hypertarget{biblioteca_8php_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{biblioteca_8php_a600d90f1a17195713d76b84391b6cd1c}\index{biblioteca.php@{biblioteca.php}!\$cognome@{\$cognome}}
+\index{\$cognome@{\$cognome}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{\$cognome}{\$cognome}}
+{\footnotesize\ttfamily \label{biblioteca_8php_a600d90f1a17195713d76b84391b6cd1c} 
+\$cognome = isset(\$\+\_\+\+SESSION\+[\textquotesingle{}cognome\textquotesingle{}]\+) ? htmlspecialchars(\$\+\_\+\+SESSION\+[\textquotesingle{}cognome\textquotesingle{}]\+) :\+ \textquotesingle{}\textquotesingle{}}
+
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00057}{57}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+\Hypertarget{biblioteca_8php_a1c2084fd14c7de68dcef9e09275b0268}\index{biblioteca.php@{biblioteca.php}!\$erroreLogin@{\$erroreLogin}}
+\index{\$erroreLogin@{\$erroreLogin}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{\$erroreLogin}{\$erroreLogin}}
+{\footnotesize\ttfamily \label{biblioteca_8php_a1c2084fd14c7de68dcef9e09275b0268} 
+\$errore\+Login = \$\+\_\+\+SESSION\+[\textquotesingle{}errore\+\_\+login\textquotesingle{}]\+ ?? \textquotesingle{}\textquotesingle{}}
+
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00058}{58}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+\Hypertarget{biblioteca_8php_a794085cc47d44fbcf5c15d3c28cbb1c7}\index{biblioteca.php@{biblioteca.php}!\$erroreReg@{\$erroreReg}}
+\index{\$erroreReg@{\$erroreReg}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{\$erroreReg}{\$erroreReg}}
+{\footnotesize\ttfamily \label{biblioteca_8php_a794085cc47d44fbcf5c15d3c28cbb1c7} 
+\$errore\+Reg = \$\+\_\+\+SESSION\+[\textquotesingle{}errore\+\_\+reg\textquotesingle{}]\+ ?? \textquotesingle{}\textquotesingle{}}
+
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00059}{59}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+\Hypertarget{biblioteca_8php_a72f86ac30035255576b292d043058d3e}\index{biblioteca.php@{biblioteca.php}!\$libro@{\$libro}}
+\index{\$libro@{\$libro}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{\$libro}{\$libro}}
+{\footnotesize\ttfamily \label{biblioteca_8php_a72f86ac30035255576b292d043058d3e} 
+\$libro = null}
+
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00062}{62}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+\Hypertarget{biblioteca_8php_ab964040a29b9cc842d2c93c8c904787c}\index{biblioteca.php@{biblioteca.php}!\$noleggiato@{\$noleggiato}}
+\index{\$noleggiato@{\$noleggiato}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{\$noleggiato}{\$noleggiato}}
+{\footnotesize\ttfamily \label{biblioteca_8php_ab964040a29b9cc842d2c93c8c904787c} 
+\$noleggiato = false}
+
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00061}{61}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+\Hypertarget{biblioteca_8php_ac8c9d9dd5d90fa5854f0cb8397084ebd}\index{biblioteca.php@{biblioteca.php}!\$nome@{\$nome}}
+\index{\$nome@{\$nome}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{\$nome}{\$nome}}
+{\footnotesize\ttfamily \label{biblioteca_8php_ac8c9d9dd5d90fa5854f0cb8397084ebd} 
+\$nome = isset(\$\+\_\+\+SESSION\+[\textquotesingle{}nome\textquotesingle{}]\+) ? htmlspecialchars(\$\+\_\+\+SESSION\+[\textquotesingle{}nome\textquotesingle{}]\+) :\+ \textquotesingle{}\textquotesingle{}}
+
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00056}{56}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+\Hypertarget{biblioteca_8php_a407a2c34c732aa9017906255b78b05ef}\index{biblioteca.php@{biblioteca.php}!\$paginaCorrente@{\$paginaCorrente}}
+\index{\$paginaCorrente@{\$paginaCorrente}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{\$paginaCorrente}{\$paginaCorrente}}
+{\footnotesize\ttfamily \label{biblioteca_8php_a407a2c34c732aa9017906255b78b05ef} 
+if (!in\+\_\+array( \$\+\_\+\+SESSION\+[ \textquotesingle{}pagina\textquotesingle{}]\+, \$pagine\+Pubbliche) \&\&empty( \$\+\_\+\+SESSION\+[ \textquotesingle{}loggato\textquotesingle{}]\+)) \$pagina\+Corrente = \$\+\_\+\+SESSION\+[\textquotesingle{}pagina\textquotesingle{}]\+}
+
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00055}{55}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+\Hypertarget{biblioteca_8php_a912329a731e64b1ae9029b9d86ab9dc5}\index{biblioteca.php@{biblioteca.php}!\$paginePubbliche@{\$paginePubbliche}}
+\index{\$paginePubbliche@{\$paginePubbliche}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{\$paginePubbliche}{\$paginePubbliche}}
+{\footnotesize\ttfamily \label{biblioteca_8php_a912329a731e64b1ae9029b9d86ab9dc5} 
+if (!isset( \$\+\_\+\+SESSION\+[ \textquotesingle{}pagina\textquotesingle{}]\+)) \$pagine\+Pubbliche = \+[\textquotesingle{}login\textquotesingle{}, \textquotesingle{}registrazione\textquotesingle{}]\+}
+
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00049}{49}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+\Hypertarget{biblioteca_8php_a9a64d17a77d74229a4b2b366041df8fd}\index{biblioteca.php@{biblioteca.php}!\$prestiti@{\$prestiti}}
+\index{\$prestiti@{\$prestiti}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{\$prestiti}{\$prestiti}}
+{\footnotesize\ttfamily \label{biblioteca_8php_a9a64d17a77d74229a4b2b366041df8fd} 
+\$prestiti = \+[$\,$]\+}
+
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00064}{64}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+\Hypertarget{biblioteca_8php_a985378b5671ef8c411c8a5c98ce79419}\index{biblioteca.php@{biblioteca.php}!\$risultati@{\$risultati}}
+\index{\$risultati@{\$risultati}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{\$risultati}{\$risultati}}
+{\footnotesize\ttfamily \label{biblioteca_8php_a985378b5671ef8c411c8a5c98ce79419} 
+\$risultati = \+[$\,$]\+}
+
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00063}{63}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+\Hypertarget{biblioteca_8php_a1c97ea3c2a354a24f38add2379ef0788}\index{biblioteca.php@{biblioteca.php}!\$smartCardGenerata@{\$smartCardGenerata}}
+\index{\$smartCardGenerata@{\$smartCardGenerata}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{\$smartCardGenerata}{\$smartCardGenerata}}
+{\footnotesize\ttfamily \label{biblioteca_8php_a1c97ea3c2a354a24f38add2379ef0788} 
+\$smart\+Card\+Generata = \$\+\_\+\+SESSION\+[\textquotesingle{}smart\+\_\+card\+\_\+generata\textquotesingle{}]\+ ?? \textquotesingle{}\textquotesingle{}}
+
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00060}{60}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+\Hypertarget{biblioteca_8php_a1e0cd334923f598dbdaeeb1e91dfdfc8}\index{biblioteca.php@{biblioteca.php}!cursor@{cursor}}
+\index{cursor@{cursor}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{cursor}{cursor}}
+{\footnotesize\ttfamily \label{biblioteca_8php_a1e0cd334923f598dbdaeeb1e91dfdfc8} 
+submit logout Cerca Cerca POST$<$?= \doxymbox{\hyperlink{biblioteca_8php_a1a2d314f77ce5f506bbb834ea7f6a213}{URL\+\_\+\+BASE}} ?$>$ search\+Form text titolo search\+Input Barra di ricerca off suggerimenti submit cerca cursor}
+
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00549}{549}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+\Hypertarget{biblioteca_8php_a6b73b83ea203e187b5fef6917199f322}\index{biblioteca.php@{biblioteca.php}!display@{display}}
+\index{display@{display}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{display}{display}}
+{\footnotesize\ttfamily \label{biblioteca_8php_a6b73b83ea203e187b5fef6917199f322} 
+submit torna\+\_\+risultati POST$<$?=\doxymbox{\hyperlink{biblioteca_8php_a1a2d314f77ce5f506bbb834ea7f6a213}{URL\+\_\+\+BASE}} ?$>$ display}
+
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00395}{395}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+\Hypertarget{biblioteca_8php_a1626973f4b04a5c470e5a6280e78ac83}\index{biblioteca.php@{biblioteca.php}!sessione@{sessione}}
+\index{sessione@{sessione}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{sessione}{sessione}}
+{\footnotesize\ttfamily \label{biblioteca_8php_a1626973f4b04a5c470e5a6280e78ac83} 
+if(isset(\$\+\_\+\+POST\+[\textquotesingle{}registrati\textquotesingle{}]\+)) if(isset( \$\+\_\+\+POST\+[ \textquotesingle{}vai\+\_\+login\textquotesingle{}]\+)) if(!empty(\$smart\+Card\+Generata)) htmlspecialchars ( \$smart\+Card\+Generata) ?$>$$<$/\+strong $>$$<$/\+p $>$$<$ p $>$Conserva questo codice e svuotare smart\+\_\+card\+\_\+generata dalla sessione}
+
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00338}{338}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+
+\Hypertarget{biblioteca_8php_a1a2d314f77ce5f506bbb834ea7f6a213}\index{biblioteca.php@{biblioteca.php}!URL\_BASE@{URL\_BASE}}
+\index{URL\_BASE@{URL\_BASE}!biblioteca.php@{biblioteca.php}}
+\doxysubsubsection{\texorpdfstring{URL\_BASE}{URL\_BASE}}
+{\footnotesize\ttfamily \label{biblioteca_8php_a1a2d314f77ce5f506bbb834ea7f6a213} 
+const URL\+\_\+\+BASE strtok(\$\+\_\+\+SERVER\+[\textquotesingle{}REQUEST\+\_\+\+URI\textquotesingle{}]\+, \textquotesingle{}?\textquotesingle{})}
+
+
+
+Definition at line \doxymbox{\hyperlink{biblioteca_8php_source_l00037}{37}} of file \doxymbox{\hyperlink{biblioteca_8php_source}{biblioteca.\+php}}.
+

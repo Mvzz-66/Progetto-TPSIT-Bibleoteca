@@ -1,0 +1,205 @@
+\doxysection{functions\+\_\+doc.\+php}
+\hypertarget{functions__doc_8php_source}{}\label{functions__doc_8php_source}\index{C:/xampp/htdocs/biblioteca scolastica/funzioni/functions\_doc.php@{C:/xampp/htdocs/biblioteca scolastica/funzioni/functions\_doc.php}}
+\doxymbox{\hyperlink{functions__doc_8php}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00001}00001\ <?php}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00034}00034\ \textcolor{comment}{//\ ════════════════════════════════════════════════════════════════}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00035}00035\ \textcolor{comment}{//\ PAGINA:\ LOGIN}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00036}00036\ \textcolor{comment}{//\ ════════════════════════════════════════════════════════════════}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00055}\doxymbox{\hyperlink{functions__doc_8php_af718c95e4be1bc2884114ee73525e000}{00055}}\ \textcolor{keyword}{function}\ \doxymbox{\hyperlink{functions__doc_8php_af718c95e4be1bc2884114ee73525e000}{cercaUtente}}(\$smartCard,\ \$password)\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00056}00056\ \ \ \ \ \$percorso\ =\ \_\_DIR\_\_\ .\ \textcolor{stringliteral}{'/utenti.txt'};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file\_exists(\$percorso))\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00059}00059\ \ \ \ \ \$file\ =\ fopen(\$percorso,\ \textcolor{charliteral}{'r'});}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\$file)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{while}\ ((\$line\ =\ fgets(\$file))\ !==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00063}00063\ \ \ \ \ \ \ \ \ \$cols\ =\ explode(\textcolor{charliteral}{';'},\ trim(\$line));}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count(\$cols)\ <\ 5)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ password\_verify()\ confronta\ la\ password\ in\ chiaro\ con\ l'hash\ salvato\ nel\ file}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (trim(\$cols[0])\ ===\ \$smartCard\ \&\&\ password\_verify(\$password,\ trim(\$cols[4])))\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ fclose(\$file);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ [\textcolor{stringliteral}{'nome'}\ =>\ trim(\$cols[1]),\ \textcolor{stringliteral}{'cognome'}\ =>\ trim(\$cols[2])];}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00070}00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00071}00071\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00072}00072\ \ \ \ \ fclose(\$file);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00074}00074\ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00076}00076\ \textcolor{comment}{//\ ════════════════════════════════════════════════════════════════}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00077}00077\ \textcolor{comment}{//\ PAGINA:\ REGISTRAZIONE}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00078}00078\ \textcolor{comment}{//\ ════════════════════════════════════════════════════════════════}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00092}\doxymbox{\hyperlink{functions__doc_8php_ae473e17c8bbc802cd06e4aa5161643f1}{00092}}\ \textcolor{keyword}{function}\ \doxymbox{\hyperlink{functions__doc_8php_ae473e17c8bbc802cd06e4aa5161643f1}{generaSmartCard}}()\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00093}00093\ \ \ \ \ \$percorso\ =\ \_\_DIR\_\_\ .\ \textcolor{stringliteral}{'/utenti.txt'};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00095}00095\ \ \ \ \ \ \ \ \ \$codice\ \ \ \ \ \ \ =\ \textcolor{stringliteral}{'SC-\/'}\ .\ strtoupper(substr(str\_shuffle(\textcolor{stringliteral}{'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'}),\ 0,\ 8));}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00096}00096\ \ \ \ \ \ \ \ \ \$codiceEsiste\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (file\_exists(\$percorso))\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (file(\$percorso)\ as\ \$riga)\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$cols\ =\ explode(\textcolor{charliteral}{';'},\ trim(\$riga));}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count(\$cols)\ >=\ 1\ \&\&\ trim(\$cols[0])\ ===\ \$codice)\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$codiceEsiste\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00105}00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00106}00106\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\$codiceEsiste);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00107}00107\ \ \ \ \ \textcolor{keywordflow}{return}\ \$codice;}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00108}00108\ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00122}\doxymbox{\hyperlink{functions__doc_8php_ae29a883b13cb00d4c55ee45abface7ac}{00122}}\ \textcolor{keyword}{function}\ \doxymbox{\hyperlink{functions__doc_8php_ae29a883b13cb00d4c55ee45abface7ac}{emailEsiste}}(\$email)\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00123}00123\ \ \ \ \ \$percorso\ =\ \_\_DIR\_\_\ .\ \textcolor{stringliteral}{'/utenti.txt'};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file\_exists(\$percorso))\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00125}00125\ \ \ \ \ \textcolor{keywordflow}{foreach}\ (file(\$percorso)\ as\ \$riga)\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00126}00126\ \ \ \ \ \ \ \ \ \$cols\ =\ explode(\textcolor{charliteral}{';'},\ trim(\$riga));}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count(\$cols)\ >=\ 4\ \&\&\ strtolower(trim(\$cols[3]))\ ===\ strtolower(\$email))\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00128}00128\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00129}00129\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00130}00130\ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00132}00132\ \textcolor{comment}{//\ ════════════════════════════════════════════════════════════════}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00133}00133\ \textcolor{comment}{//\ PAGINA:\ HOME\ \ (endpoint\ AJAX\ autocomplete)}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00134}00134\ \textcolor{comment}{//\ ════════════════════════════════════════════════════════════════}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00153}\doxymbox{\hyperlink{functions__doc_8php_aec9b3792bbf57c43828f33f04e1fc9c1}{00153}}\ \textcolor{keyword}{function}\ \doxymbox{\hyperlink{functions__doc_8php_aec9b3792bbf57c43828f33f04e1fc9c1}{autocompleteAjax}}()\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00154}00154\ \ \ \ \ \$q\ \ \ \ \ \ \ =\ strtolower(trim(\$\_GET[\textcolor{charliteral}{'q'}]\ ??\ \textcolor{stringliteral}{''}));}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00155}00155\ \ \ \ \ \$results\ =\ [];}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00157}00157\ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(\$q)\ >=\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00158}00158\ \ \ \ \ \ \ \ \ \$file\ =\ fopen(\_\_DIR\_\_\ .\ \textcolor{stringliteral}{'/lista-\/libri.txt'},\ \textcolor{charliteral}{'r'});}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\$file)\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ fgets(\$file);\ \textcolor{comment}{//\ salta\ intestazione}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((\$line\ =\ fgets(\$file))\ !==\ \textcolor{keyword}{false}\ \&\&\ count(\$results)\ <\ 8)\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$cols\ =\ explode(\textcolor{charliteral}{';'},\ trim(\$line));}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count(\$cols)\ <\ 4)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$titolo\ =\ \$cols[2];}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$autore\ =\ \$cols[3];}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$isbn\ \ \ =\ \$cols[7]\ ??\ \textcolor{stringliteral}{''};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_contains(strtolower(\$titolo),\ \$q)\ ||}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_contains(strtolower(\$autore),\ \$q)\ ||}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_contains(strtolower(\$isbn),\ \ \ \$q)}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$results[]\ =\ [\textcolor{stringliteral}{'titolo'}\ =>\ trim(\$titolo),\ \textcolor{stringliteral}{'autore'}\ =>\ trim(\$autore)];}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ fclose(\$file);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00176}00176\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00177}00177\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00179}00179\ \ \ \ \ header(\textcolor{stringliteral}{'Content-\/Type:\ application/json'});}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00180}00180\ \ \ \ \ echo\ json\_encode(\$results);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00181}00181\ \ \ \ \ exit();}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00182}00182\ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00184}00184\ \textcolor{comment}{//\ ════════════════════════════════════════════════════════════════}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00185}00185\ \textcolor{comment}{//\ PAGINA:\ RISULTATI}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00186}00186\ \textcolor{comment}{//\ ════════════════════════════════════════════════════════════════}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00202}\doxymbox{\hyperlink{functions__doc_8php_a7342758c495e6694fac6430b3e4dfaf0}{00202}}\ \textcolor{keyword}{function}\ \doxymbox{\hyperlink{functions__doc_8php_a7342758c495e6694fac6430b3e4dfaf0}{cercaLibriPerTesto}}(\$q)\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00203}00203\ \ \ \ \ \$q\ \ \ \ \ \ \ =\ strtolower(trim(\$q));}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00204}00204\ \ \ \ \ \$results\ =\ [];}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00205}00205\ \ \ \ \ \$file\ \ \ \ =\ fopen(\_\_DIR\_\_\ .\ \textcolor{stringliteral}{'/lista-\/libri.txt'},\ \textcolor{charliteral}{'r'});}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00206}00206\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\$file)\ \textcolor{keywordflow}{return}\ \$results;}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00207}00207\ \ \ \ \ fgets(\$file);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00208}00208\ \ \ \ \ \textcolor{keywordflow}{while}\ ((\$line\ =\ fgets(\$file))\ !==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00209}00209\ \ \ \ \ \ \ \ \ \$cols\ =\ explode(\textcolor{charliteral}{';'},\ trim(\$line));}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00210}00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count(\$cols)\ <\ 11)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00211}00211\ \ \ \ \ \ \ \ \ \$titolo\ =\ trim(\$cols[2]);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00212}00212\ \ \ \ \ \ \ \ \ \$autore\ =\ trim(\$cols[3]);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00213}00213\ \ \ \ \ \ \ \ \ \$genere\ =\ trim(\$cols[4]);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00214}00214\ \ \ \ \ \ \ \ \ \$isbn\ \ \ =\ trim(\$cols[7]);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00215}00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ str\_contains(strtolower(\$titolo),\ \$q)\ ||}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ str\_contains(strtolower(\$autore),\ \$q)\ ||}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ str\_contains(strtolower(\$genere),\ \$q)\ ||}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ str\_contains(strtolower(\$isbn),\ \ \ \$q)}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00220}00220\ \ \ \ \ \ \ \ \ )\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \$results[]\ =\ [}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'id'}\ \ \ \ \ \ \ \ \ \ =>\ trim(\$cols[1]),}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'titolo'}\ \ \ \ \ \ =>\ \$titolo,}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'autore'}\ \ \ \ \ \ =>\ \$autore,}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'genere'}\ \ \ \ \ \ =>\ \$genere,}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'anno'}\ \ \ \ \ \ \ \ =>\ trim(\$cols[5]),}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'disponibile'}\ =>\ strtoupper(trim(\$cols[10]))\ ===\ \textcolor{stringliteral}{'SI'},}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ ];}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00229}00229\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00230}00230\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00231}00231\ \ \ \ \ fclose(\$file);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00232}00232\ \ \ \ \ \textcolor{keywordflow}{return}\ \$results;}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00233}00233\ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00235}00235\ \textcolor{comment}{//\ ════════════════════════════════════════════════════════════════}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00236}00236\ \textcolor{comment}{//\ PAGINA:\ SCHEDA\ LIBRO}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00237}00237\ \textcolor{comment}{//\ ════════════════════════════════════════════════════════════════}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00251}\doxymbox{\hyperlink{functions__doc_8php_a340d3e899cba9f26357b2c1019473926}{00251}}\ \textcolor{keyword}{function}\ \doxymbox{\hyperlink{functions__doc_8php_a340d3e899cba9f26357b2c1019473926}{leggiPrestiti}}()\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00252}00252\ \ \ \ \ \$prestiti\ =\ [];}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00253}00253\ \ \ \ \ \$file\ =\ fopen(\_\_DIR\_\_\ .\ \textcolor{stringliteral}{'/lista-\/libri.txt'},\ \textcolor{charliteral}{'r'});}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00254}00254\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\$file)\ \textcolor{keywordflow}{return}\ \$prestiti;}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00255}00255\ \ \ \ \ fgets(\$file);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00256}00256\ \ \ \ \ \textcolor{keywordflow}{while}\ ((\$line\ =\ fgets(\$file))\ !==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00257}00257\ \ \ \ \ \ \ \ \ \$cols\ =\ explode(\textcolor{charliteral}{';'},\ trim(\$line));}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count(\$cols)\ <\ 13)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00259}00259\ \ \ \ \ \ \ \ \ \$dataInizio\ =\ trim(\$cols[11]);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00260}00260\ \ \ \ \ \ \ \ \ \$dataFine\ \ \ =\ trim(\$cols[12]);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00261}00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strtoupper(\$dataInizio)\ ===\ \textcolor{stringliteral}{'NULL'}\ ||\ strtoupper(\$dataFine)\ ===\ \textcolor{stringliteral}{'NULL'})\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00262}00262\ \ \ \ \ \ \ \ \ \$prestiti[trim(\$cols[1])]\ =\ [\textcolor{stringliteral}{'inizio'}\ =>\ \$dataInizio,\ \textcolor{stringliteral}{'fine'}\ =>\ \$dataFine];}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00263}00263\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00264}00264\ \ \ \ \ fclose(\$file);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00265}00265\ \ \ \ \ \textcolor{keywordflow}{return}\ \$prestiti;}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00266}00266\ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00282}\doxymbox{\hyperlink{functions__doc_8php_ac793a03e70c9c7b97ab43f7a02a7cd95}{00282}}\ \textcolor{keyword}{function}\ \doxymbox{\hyperlink{functions__doc_8php_ac793a03e70c9c7b97ab43f7a02a7cd95}{cercaLibroPerID}}(\$idCercato)\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00283}00283\ \ \ \ \ \$file\ =\ fopen(\_\_DIR\_\_\ .\ \textcolor{stringliteral}{'/lista-\/libri.txt'},\ \textcolor{charliteral}{'r'});}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00284}00284\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\$file)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00285}00285\ \ \ \ \ fgets(\$file);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00286}00286\ \ \ \ \ \textcolor{keywordflow}{while}\ ((\$line\ =\ fgets(\$file))\ !==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00287}00287\ \ \ \ \ \ \ \ \ \$cols\ =\ explode(\textcolor{charliteral}{';'},\ trim(\$line));}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00288}00288\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count(\$cols)\ <\ 11)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00289}00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (trim(\$cols[1])\ ===\ \$idCercato)\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ fclose(\$file);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ [}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'id'}\ \ \ \ \ \ \ \ \ \ =>\ trim(\$cols[1]),}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'titolo'}\ \ \ \ \ \ =>\ trim(\$cols[2]),}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'autore'}\ \ \ \ \ \ =>\ trim(\$cols[3]),}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'genere'}\ \ \ \ \ \ =>\ trim(\$cols[4]),}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'anno'}\ \ \ \ \ \ \ \ =>\ trim(\$cols[5]),}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'editore'}\ \ \ \ \ =>\ trim(\$cols[6]),}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'isbn'}\ \ \ \ \ \ \ \ =>\ trim(\$cols[7]),}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'lingua'}\ \ \ \ \ \ =>\ trim(\$cols[8]),}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'pagine'}\ \ \ \ \ \ =>\ trim(\$cols[9]),}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'disponibile'}\ =>\ strtoupper(trim(\$cols[10]))\ ===\ \textcolor{stringliteral}{'SI'},}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ ];}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00303}00303\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00304}00304\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00305}00305\ \ \ \ \ fclose(\$file);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00306}00306\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00307}00307\ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00308}00308\ }
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00326}\doxymbox{\hyperlink{functions__doc_8php_a75543e333e52bea1e46b169be8486bc7}{00326}}\ \textcolor{keyword}{function}\ \doxymbox{\hyperlink{functions__doc_8php_a75543e333e52bea1e46b169be8486bc7}{aggiornaDisponibilita}}(\$idLibro,\ \$nuovoVal,\ \$dataInizio\ =\ \textcolor{keyword}{null},\ \$dataFine\ =\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00327}00327\ \ \ \ \ \$percorso\ =\ \_\_DIR\_\_\ .\ \textcolor{stringliteral}{'/lista-\/libri.txt'};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00328}00328\ \ \ \ \ \$righe\ \ \ \ =\ file(\$percorso);}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00329}00329\ \ \ \ \ \textcolor{keywordflow}{if}\ (\$righe\ ===\ \textcolor{keyword}{false})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00330}00330\ \ \ \ \ \$trovato\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00331}00331\ \ \ \ \ \textcolor{keywordflow}{foreach}\ (\$righe\ as\ \$i\ =>\ \$riga)\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00332}00332\ \ \ \ \ \ \ \ \ \$cols\ =\ explode(\textcolor{charliteral}{';'},\ trim(\$riga));}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00333}00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count(\$cols)\ <\ 11)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00334}00334\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (trim(\$cols[1])\ ===\ \$idLibro)\ \{}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \$cols[10]\ =\ \$nuovoVal;}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\$dataInizio\ !==\ \textcolor{keyword}{null})\ \$cols[11]\ =\ \$dataInizio;}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00337}00337\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\$dataFine\ \ \ !==\ \textcolor{keyword}{null})\ \$cols[12]\ =\ \$dataFine;}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00338}00338\ \ \ \ \ \ \ \ \ \ \ \ \ \$righe[\$i]\ =\ implode(\textcolor{charliteral}{';'},\ \$cols)\ .\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00339}00339\ \ \ \ \ \ \ \ \ \ \ \ \ \$trovato\ \ \ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00341}00341\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00342}00342\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00343}00343\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\$trovato)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00344}00344\ \ \ \ \ \textcolor{keywordflow}{return}\ file\_put\_contents(\$percorso,\ implode(\textcolor{stringliteral}{''},\ \$righe))\ !==\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{functions__doc_8php_source_l00345}00345\ \}}
+
+\end{DoxyCode}
